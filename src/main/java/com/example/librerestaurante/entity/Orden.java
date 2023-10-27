@@ -1,17 +1,12 @@
 package com.example.librerestaurante.entity;
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
-
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -28,11 +23,14 @@ public class Orden {
     private Empleado empleado;
     private Date date_time;
     private String status;
-
-    @OneToMany(mappedBy = "orden", cascade = CascadeType.ALL)
-    private Set<DetalleOrden> detalleOrdenes = new HashSet<>();
-
+    private Double total;
     
+
+    public Orden(){
+        this.date_time = new Date();
+        this.status = "Iniciada";
+        this.total = 0.00;
+    }
 
     /**
      * @return long return the ordenId
@@ -91,20 +89,17 @@ public class Orden {
     }
 
     /**
-     * @return Set<DetalleOrden> return the detalleOrdenes
+     * @return Double return the total
      */
-    public Set<DetalleOrden> getDetalleOrdenes() {
-        return detalleOrdenes;
+    public Double getTotal() {
+        return total;
     }
 
     /**
-     * @param detalleOrdenes the detalleOrdenes to set
+     * @param total the total to set
      */
-    public void setDetalleOrdenes(Set<DetalleOrden> detalleOrdenes) {
-        this.detalleOrdenes = detalleOrdenes;
-        for(DetalleOrden _do: detalleOrdenes){
-            _do.setOrden(this);
-        }
+    public void setTotal(Double total) {
+        this.total = total;
     }
 
 }

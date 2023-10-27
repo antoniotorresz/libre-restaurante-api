@@ -27,7 +27,7 @@ public class Platillo {
     @OneToMany(mappedBy = "platillo", cascade = CascadeType.ALL)
     private Set<DetalleOrden> detalleOrdenes = new HashSet<>();
 
-    
+    public Platillo(){}
 
     /**
      * @return long return the platilloId

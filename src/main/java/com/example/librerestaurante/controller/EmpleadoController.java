@@ -16,7 +16,7 @@ import com.example.librerestaurante.entity.Empleado;
 import com.example.librerestaurante.service.EmpleadoService;
 
 @RestController
-@RequestMapping(path = "empleados")
+@RequestMapping(path = "/api/v1/empleados")
 public class EmpleadoController {
     @Autowired
     EmpleadoService empleadoService;

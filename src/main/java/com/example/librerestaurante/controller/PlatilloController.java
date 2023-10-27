@@ -16,7 +16,7 @@ import com.example.librerestaurante.entity.Platillo;
 import com.example.librerestaurante.service.PlatilloService;
 
 @RestController
-@RequestMapping(path = "platillos")
+@RequestMapping(path = "/api/v1/platillos")
 public class PlatilloController {
     @Autowired
     private PlatilloService platilloService;

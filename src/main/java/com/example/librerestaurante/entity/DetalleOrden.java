@@ -33,7 +33,7 @@ public class DetalleOrden {
     private Integer cantidad;
     private Double subtotal;
     
-    
+    public DetalleOrden(){}
 
     /**
      * @return long return the detalleOrdenId
